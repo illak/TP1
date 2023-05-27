@@ -1,4 +1,4 @@
-# TP1 - Coderhouse - DE-FLEX
+# TP1 - Coderhouse - DE-FLEX 🚀
 ## Autor: Illak Zapata
 
 Se recomienda acceder a la versión de colab ya que explica el paso a paso del proyecto:
