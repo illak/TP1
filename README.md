@@ -7,7 +7,7 @@ Se recomienda acceder a la versión de colab ya que explica el paso a paso del p
 
 mientras que el archivo *TP1_local.ipynb* contiene el código necesario y adaptado para correr el proyecto de manera local.
 
-Notar que para la versión local se requieren las siguientes variables de entorno:
+Notar que para la versión local se requieren las siguientes variables de entorno (en un archivo `.env`):
 
 ```
 NEWSAPI_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
