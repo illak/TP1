@@ -51,3 +51,5 @@ Algunas consideraciones:
 - Se separó el proceso de **extracción** del de **carga** de datos, esto es:
   - la creación de la tabla para DW se hizo usando *DBeaver*
   - mientras que el proceso de obtención de datos desde la API y su posterior carga se realizó con Python (librerias `requests` + `pyspark`, entre otras)
+
+![data flow diagram](data-flow-diagram-v2.png)
