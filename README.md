@@ -1,5 +1,6 @@
-# TP1 - Coderhouse - DE-FLEX 🚀
 ## Autor: Illak Zapata
+---
+# TP1 - Coderhouse - DE-FLEX 🚀
 
 Se recomienda acceder a la versión de colab ya que explica el paso a paso del proyecto:
 
@@ -53,3 +54,14 @@ Algunas consideraciones:
   - mientras que el proceso de obtención de datos desde la API y su posterior carga se realizó con Python (librerias `requests` + `pyspark`, entre otras)
 
 ![data flow diagram](data-flow-diagram-v2.png)
+
+
+---
+
+# TP2 - Coderhouse - DE-FLEX 🚀
+
+Se recomienda acceder a la versión de colab ya que explica el paso a paso del proyecto:
+
+==============<br>
+👉 [ENLACE A COLAB](https://colab.research.google.com/drive/1pVPXV6G2QoeSIrqzPC1qktQLt9797npE#scrollTo=o4ceD9aeuY6w) <br>
+==============<br>
