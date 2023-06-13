@@ -60,6 +60,9 @@ Algunas consideraciones:
 
 # TP2 - Coderhouse - DE-FLEX 🚀
 
+Para esta segunda entrega se pide que luego de la extracción de datos desde la API realizada en la anterior entrega, estos datos deben tener un "tratamiento" o **limpieza** y posteriormente
+cargarlos en Redshift. Para esto se utilizó PySpark con el objetivo de que el procesamiento pueda escalar si los datos que se traen desde la API aumentan en términos de **volumen**.
+
 Se recomienda acceder a la versión de colab ya que explica el paso a paso del proyecto:
 
 ==============<br>
