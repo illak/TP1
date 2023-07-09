@@ -1,5 +1,6 @@
-# TP1 - Coderhouse - DE-FLEX 🚀
 ## Autor: Illak Zapata
+---
+# TP1 - Coderhouse - DE-FLEX 🚀
 
 Se recomienda acceder a la versión de colab ya que explica el paso a paso del proyecto:
 
@@ -53,3 +54,17 @@ Algunas consideraciones:
   - mientras que el proceso de obtención de datos desde la API y su posterior carga se realizó con Python (librerias `requests` + `pyspark`, entre otras)
 
 ![data flow diagram](data-flow-diagram-v2.png)
+
+
+---
+
+# TP2 - Coderhouse - DE-FLEX 🚀
+
+Para esta segunda entrega se pide que luego de la extracción de datos desde la API realizada en la anterior entrega, estos datos deben tener un "tratamiento" o **limpieza** y posteriormente
+cargarlos en Redshift. Para esto se utilizó PySpark con el objetivo de que el procesamiento pueda escalar si los datos que se traen desde la API aumentan en términos de **volumen**.
+
+Se recomienda acceder a la versión de colab ya que explica el paso a paso del proyecto:
+
+==============<br>
+👉 [ENLACE A COLAB](https://colab.research.google.com/drive/1pVPXV6G2QoeSIrqzPC1qktQLt9797npE#scrollTo=o4ceD9aeuY6w) <br>
+==============<br>
