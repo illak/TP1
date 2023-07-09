@@ -69,6 +69,8 @@ Se recomienda acceder a la versión de colab ya que explica el paso a paso del p
 👉 [ENLACE A COLAB](https://colab.research.google.com/drive/1pVPXV6G2QoeSIrqzPC1qktQLt9797npE#scrollTo=o4ceD9aeuY6w) <br>
 ==============<br>
 
+
+---
 # TP3 - Coderhouse - DE-FLEX 🚀
 Para esta tercer entrega se debe **portar** las dos etapas anteriores a [Apache Airflow](https://airflow.apache.org/). Para esto se va a utilizar Docker, es decir, vamos a hacer el proyecto "portable", de esta manera podrá ejecutarse desde casi cualquier sistema y sin tanto trabajo. Como requisito se requiere tener instalado **Docker** y **Docker Compose**.
 
@@ -94,8 +96,15 @@ En donde:
 * `ETL_newsapi.py` en el directorio `pyscripts` contiene código que básicamente realiza las tareas de los entregables 1 y 2. Este archivo no es registrado como DAG por el "scheduler" de airflow ya que se encuentra en el archivo `.airflowignore`.
 * Es necesario completar el archivo `.env` con las credenciales necesarias. Para esto se debe seguir el modelo del archivo `.env_modelo` que se encuentra en en directorio de `pyscripts`.
 
-Pasos para hacer el deploy:
+## Pasos para hacer el deploy:
 
-* Dentro de la carpeta `entregable_3_airflow` crear las carpetas `logs`, `plugins`, `processed_data` y `raw_data`. En linux: `mkdir logs plugins processed_data raw_data`.
+Dentro de la carpeta `entregable_3_airflow` crear las carpetas `logs`, `plugins`, `processed_data` y `raw_data`. En linux: 
 
-* Luego correr: `docker compose up --build`
+```
+mkdir logs plugins processed_data raw_data
+```
+
+Luego correr: 
+```
+docker compose up --build
+```
