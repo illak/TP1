@@ -1,3 +1,9 @@
 .env
+entregable3/dags/pyscripts/.env
+entregable3/dags/pyscripts/__pycache__
+entregable3/dags/__pycache__
+entregable3/logs/*
+entregable3/processed_data/*
+entregable3/raw_data/*
 .ipynb_checkpoints
 .ipynb_checkpoints/*
