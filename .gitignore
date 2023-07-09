@@ -4,6 +4,7 @@ entregable_3_airflow/dags/pyscripts/__pycache__
 entregable_3_airflow/dags/pyscripts/__pycache__/*
 entregable_3_airflow/dags/__pycache__
 entregable_3_airflow/logs/*
+!entregable_3_airflow/logs/dummy.txt
 entregable_3_airflow/processed_data/*
 entregable_3_airflow/raw_data/*
 .ipynb_checkpoints
