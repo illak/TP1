@@ -96,15 +96,10 @@ En donde:
 * `ETL_newsapi.py` en el directorio `pyscripts` contiene código que básicamente realiza las tareas de los entregables 1 y 2. Este archivo no es registrado como DAG por el "scheduler" de airflow ya que se encuentra en el archivo `.airflowignore`.
 * Es necesario completar el archivo `.env` con las credenciales necesarias. Para esto se debe seguir el modelo del archivo `.env_modelo` que se encuentra en en directorio de `pyscripts`.
 
-## Pasos para hacer el deploy:
+## Para hacer el deploy:
 
-Dentro de la carpeta `entregable_3_airflow` crear las carpetas `logs`, `plugins`, `processed_data` y `raw_data`. En linux: 
+Dentro del directorio del entregable 3:
 
-```
-mkdir logs plugins processed_data raw_data
-```
-
-Luego correr: 
 ```
 docker compose up --build
 ```
