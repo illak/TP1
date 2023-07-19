@@ -8,5 +8,16 @@ entregable_3_airflow/plugins/__pycache__
 !entregable_3_airflow/logs/dummy.txt
 entregable_3_airflow/processed_data/*
 entregable_3_airflow/raw_data/*
+
+EntregaFinal_IllakZapata_DATENG_51935/dags/pyscripts/.env
+EntregaFinal_IllakZapata_DATENG_51935/dags/pyscripts/__pycache__
+EntregaFinal_IllakZapata_DATENG_51935/dags/pyscripts/__pycache__/*
+EntregaFinal_IllakZapata_DATENG_51935/dags/__pycache__
+EntregaFinal_IllakZapata_DATENG_51935/logs/*
+EntregaFinal_IllakZapata_DATENG_51935/plugins/__pycache__
+EntregaFinal_IllakZapata_DATENG_51935/logs/dummy.txt
+EntregaFinal_IllakZapata_DATENG_51935/processed_data/*
+EntregaFinal_IllakZapata_DATENG_51935/raw_data/*
+
 .ipynb_checkpoints
 .ipynb_checkpoints/*
