@@ -60,6 +60,8 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    SMTP_USER: '${SMTP_USER}'
+    SMTP_PASSWORD: '${SMTP_PASSWORD}'
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -67,7 +69,7 @@ x-airflow-common:
     - ./jars:/opt/airflow/jars
     #- ./input_files:/opt/airflow/input_files
     #- ./output_files:/opt/airflow/output_files
-    - ./config:/opt/airflow
+    - ./config/airflow.cfg:/opt/airflow/airflow.cfg
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
