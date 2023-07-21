@@ -132,7 +132,8 @@ AIRFLOW__SMTP__SMTP_PORT='587'
 
 Para el caso anterior se hace uso del smtp de gmail. Además debemos configurar las variables de entorno como se explicó en la entrega anterior.
 
-Finalmente levantamos el servicio con el comando:
+
+El proyecto se encuentra en la carpeta *[EntregaFinal_IllakZapata_DATENG_51935](https://github.com/illak/TP_DE_FLEX_CODER/tree/master/EntregaFinal_IllakZapata_DATENG_51935)*. Dentro del directorio levantamos el servicio con el comando:
 
 ```
 $docker compose up --build
