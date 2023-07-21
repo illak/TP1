@@ -1,4 +1,4 @@
-FROM apache/airflow:2.2.3
+FROM apache/airflow:2.6.2
 #FROM apache/airflow:2.3.3
 USER root
 
@@ -20,3 +20,6 @@ USER airflow
 COPY ./requirements.txt /
 RUN pip install -r /requirements.txt
 RUN touch /opt/airflow/__init__.py
+
+# copiamos nuestro propio archivo de configuración (para SMTP)
+#COPY ./config/airflow.cfg /opt/airflow/

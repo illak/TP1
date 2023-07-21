@@ -1,14 +1,11 @@
 import os
 import requests
 import json
-import pandas as pd
 
-import pyspark
 import psycopg2
 
 from pyspark.sql import DataFrame, SparkSession
-from typing import List
-import pyspark.sql.types as T
+
 import pyspark.sql.functions as F
 
 from functools import reduce
@@ -31,7 +28,7 @@ spark= SparkSession \
 
 # Función para obtener páginas de articulos ====================================================================
 
-def generateDataframeApiWeather(topic, pages, language = 'en'):
+def generate_df_apiweather(topic, pages, language = 'en'):
 
     df_list = []
     pages_temp = 0
@@ -106,7 +103,7 @@ def generateDataframeApiWeather(topic, pages, language = 'en'):
 
 
 # Función que realiza la carga a Redshift
-def realizarCarga(df, url, properties, tabla, append=False):
+def realizar_carga(df, url, properties, tabla, append=False):
     # Escribimos los datos del dataframe a la BD en redshift
 
     # Usamos "time" para controlar el tiempo de carga a la BD
@@ -140,7 +137,7 @@ def realizarCarga(df, url, properties, tabla, append=False):
     print('Tiempo de ejecución tarea de ecsritura en la BD:', elapsed_time, 'segundos')
 
 
-def limpiarTablaRemota(table, schema, conf):
+def limpiar_tabla_remota(table, schema, conf):
     print('Starting connection...')
     conn = create_conn(config=conf)
     cursor = conn.cursor()
@@ -178,7 +175,7 @@ def create_conn(*args, **kwargs):
 
 
 # Función que elimina registros de una tabla en Redshift
-def limpiarTablaRemota(table, schema, conf):
+def limpiar_tabla_remota(table, schema, conf):
 
     print('Starting connection...')
 
@@ -214,7 +211,7 @@ def limpiarTablaRemota(table, schema, conf):
 # ====================================================================
 def extract():
     try:
-        df_articles = generateDataframeApiWeather('data engineer', 2)
+        df_articles = generate_df_apiweather('data engineer', 2)
         df_complete = reduce(DataFrame.unionAll, df_articles)
 
         df_complete.printSchema()
@@ -234,7 +231,7 @@ def extract():
             "driver": "org.postgresql.Driver"
         }
 
-        realizarCarga(df_complete, url, properties, "df_news_api_dw_temp")
+        realizar_carga(df_complete, url, properties, "df_news_api_dw_temp")
         #return df_serial
     except Exception as e:
         print(e)
@@ -272,7 +269,7 @@ def transform_load():
     df_complete.printSchema()
             
     # Luego de consumir los datos, limpiamos tabla temporal
-    limpiarTablaRemota("df_news_api_dw_temp", "i_zapata1989_coderhouse", conf)
+    limpiar_tabla_remota("df_news_api_dw_temp", "i_zapata1989_coderhouse", conf)
 
     print("="*30)
 
@@ -287,7 +284,7 @@ def transform_load():
     print("Filtrando filas con valores nulos ...")
     df_complete_no_nulls = df_complete_dedup.dropna(subset=["author","description"])
     
-    realizarCarga(df_complete_no_nulls, url, properties, "df_news_api_dw", append=True)
+    realizar_carga(df_complete_no_nulls, url, properties, "df_news_api_dw", append=True)
 
 
 

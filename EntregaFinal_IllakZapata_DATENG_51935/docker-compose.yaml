@@ -52,24 +52,25 @@ x-airflow-common:
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    # Agregado (revisar)
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
+    AIRFLOW__SMTP__SMTP_HOST: 'smtp.gmail.com'
+    AIRFLOW__SMTP__SMTP_USER: 'i.zapata1989@gmail.com'
+    AIRFLOW__SMTP__SMTP_PASSWORD: ${SMTP_PASSWORD}
+    AIRFLOW__SMTP__SMTP_PORT: 587
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
-    SMTP_USER: '${SMTP_USER}'
-    SMTP_PASSWORD: '${SMTP_PASSWORD}'
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
     - ./jars:/opt/airflow/jars
-    #- ./input_files:/opt/airflow/input_files
-    #- ./output_files:/opt/airflow/output_files
-    - ./config/airflow.cfg:/opt/airflow/airflow.cfg
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -107,6 +108,8 @@ services:
   airflow-webserver:
     <<: *airflow-common
     command: webserver
+    env_file:
+      - env_keys.env
     ports:
       - 8080:8080
     healthcheck:

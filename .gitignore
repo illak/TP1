@@ -10,6 +10,7 @@ entregable_3_airflow/processed_data/*
 entregable_3_airflow/raw_data/*
 
 EntregaFinal_IllakZapata_DATENG_51935/.env
+EntregaFinal_IllakZapata_DATENG_51935/env_keys.env
 EntregaFinal_IllakZapata_DATENG_51935/dags/pyscripts/.env
 EntregaFinal_IllakZapata_DATENG_51935/dags/pyscripts/__pycache__
 EntregaFinal_IllakZapata_DATENG_51935/dags/pyscripts/__pycache__/*

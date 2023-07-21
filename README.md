@@ -106,5 +106,34 @@ A continuación se muestra el diagrama del flujo de datos y las tareas que orque
 Dentro del directorio del entregable 3:
 
 ```
-docker compose up --build
+$docker compose up --build
+```
+
+---
+# TP4 - Final - Coderhouse - DE-FLEX 🚀
+
+Para la entrega final se pide que, en base a lo realizado en la entrega anterior, se agreguen **alertas**. Estas alertas deberán enviarse mediante **mail**.
+
+Para nuestro proyecto se planteó el envío de alertas en 3 situaciones:
+
+- Ejecución exitosa: Para este caso se envía un mail cada vez que una tarea se realiza de manera correcta.
+- Ejecución fallida (`email_on_failure`): Para este caso se envía un mail cada vez que una tarea falla en su ejecución.
+- Reintento de ejecución (`email_on_retry`): Para este caso se envía un mail cada vez que se reintenta la ejecución de una tarea.
+
+Es necesario configurar las variables de entorno en el archivo `env_keys.env` de la forma en que se muestra en el modelo de archivo `env_keys.env_modelo`:
+
+```
+AIRFLOW__SMTP__SMTP_MAIL_FROM='xxxxxxxx@gmail.com'
+AIRFLOW__SMTP__SMTP_USER='xxxxxxxx@gmail.com'
+AIRFLOW__SMTP__SMTP_PASSWORD='xxxxxxxxxxxxxxxxxx'
+AIRFLOW__SMTP__SMTP_HOST='smtp.gmail.com'
+AIRFLOW__SMTP__SMTP_PORT='587'
+```
+
+Para el caso anterior se hace uso del smtp de gmail. Además debemos configurar las variables de entorno como se explicó en la entrega anterior.
+
+Finalmente levantamos el servicio con el comando:
+
+```
+$docker compose up --build
 ```
