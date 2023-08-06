@@ -125,7 +125,7 @@ Para este caso se hace uso de la variable ```min_regs```, como se muestra en la 
 
 ![configuración de variable de threshold](tp_final_variables.png)
 
-Esta variable controla la cantidad mínima de registros que se esperan de la etapa (o tarea) **EXTRACT** de datos (extracción). En este sentido, si se setea la variable en 150 registros, si la cantidad de noticias obtenidas se encuentran por debajo de este valor, se procede con el envío de un mail informando de esta situación.
+Esta variable controla la cantidad mínima de registros que se esperan de la etapa (o tarea) **EXTRACT** de datos (extracción). En este sentido, si se setea la variable en 150 registros y la cantidad de noticias obtenidas se encuentra por debajo de este valor, se procede con el envío de un mail informando de esta situación.
 A continuación podemos observar la estructura de este **DAG**:
 
 ![configuración de variable de threshold](dags_tp_final.png)
