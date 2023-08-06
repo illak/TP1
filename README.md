@@ -120,6 +120,18 @@ Para nuestro proyecto se planteó el envío de alertas en 3 situaciones:
 - Ejecución fallida (`email_on_failure`): Para este caso se envía un mail cada vez que una tarea falla en su ejecución.
 - Reintento de ejecución (`email_on_retry`): Para este caso se envía un mail cada vez que se reintenta la ejecución de una tarea.
 
+Además se hace uso del sistema de _"thresholds"_, con la finalidad de seguir un control sobre la obtención de datos desde la API.
+Para este caso se hace uso de la variable ```min_regs```, como se muestra en la siguiente captura:
+
+![configuración de variable de threshold](tp_final_variables.png)
+
+Esta variable controla la cantidad mínima de registros que se esperan de la etapa (o tarea) **EXTRACT** de datos (extracción). En este sentido, si se setea la variable en 150 registros, si la cantidad de noticias obtenidas se encuentran por debajo de este valor, se procede con el envío de un mail informando de esta situación.
+A continuación podemos observar la estructura de este **DAG**:
+
+![configuración de variable de threshold](dags_tp_final.png)
+
+Se puede observar que ahora tenemos una tarea intermedia ```check_num_rows``` que realiza el chequeo de la condición de cantidad de registros o filas. En el caso en que la condición se cumpla de manera positiva, se procede con la tarea de **Transformación y Carga** (TRANSFORM & LOAD).
+
 Es necesario configurar las variables de entorno en el archivo `env_keys.env` de la forma en que se muestra en el modelo de archivo `env_keys.env_modelo`:
 
 ```
@@ -128,12 +140,30 @@ AIRFLOW__SMTP__SMTP_USER='xxxxxxxx@gmail.com'
 AIRFLOW__SMTP__SMTP_PASSWORD='xxxxxxxxxxxxxxxxxx'
 AIRFLOW__SMTP__SMTP_HOST='smtp.gmail.com'
 AIRFLOW__SMTP__SMTP_PORT='587'
+AIRFLOW_VAR_MAIL: 'xxxxxxxx@gmail.com'
+AIRFLOW_VAR_MAIL_PASS: 'xxxxxxxxxxxxxxxxxx'
 ```
 
-Para el caso anterior se hace uso del smtp de gmail. Además debemos configurar las variables de entorno como se explicó en la entrega anterior.
+Para el envío de mails automáticos de tareas realizadas se usan:
+* AIRFLOW__SMTP__SMTP_MAIL_FROM
+* AIRFLOW__SMTP__SMTP_USER
+* AIRFLOW__SMTP__SMTP_PASSWORD
+* AIRFLOW__SMTP__SMTP_HOST
+* AIRFLOW__SMTP__SMTP_PORT
 
+Los cuales se usan con los mecanismos que provee Airflow.
 
-El proyecto se encuentra en la carpeta *[EntregaFinal_IllakZapata_DATENG_51935](https://github.com/illak/TP_DE_FLEX_CODER/tree/master/EntregaFinal_IllakZapata_DATENG_51935)*. Dentro del directorio levantamos el servicio con el comando:
+Para el envío de mails en base a **thresholds** se usan:
+* AIRFLOW_VAR_MAIL
+* AIRFLOW_VAR_MAIL_PASS
+
+Estos últimos se usan en conjunto con la libreria ```smtplib```, para envíos más personalizados. 
+
+En todos los casos, para el envío de mails automáticos, se hace uso del **smtp** de gmail. 
+
+Además debemos configurar las variables de entorno como se explicó en la entrega anterior (necesarias para el uso de la API de noticias y de REDSHIFT).
+
+El proyecto se encuentra en la carpeta *[EntregaFinal_IllakZapata_DATENG_51935](https://github.com/illak/TP_DE_FLEX_CODER/tree/master/EntregaFinal_IllakZapata_DATENG_51935)*. Dentro del directorio y luego de haber configurado todo lo relacionado a variables, levantamos el servicio con el comando:
 
 ```
 $docker compose up --build
