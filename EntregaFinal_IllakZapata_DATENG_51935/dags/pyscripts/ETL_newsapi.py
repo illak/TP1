@@ -237,9 +237,13 @@ def limpiar_tabla_remota(table, schema, conf):
 #=============================
 
 # ====================================================================
-def extract():
+def extract(topic='data engineer'):
     try:
-        df_articles = generate_df_apiweather('data engineer', 2)
+
+        print(30*'=')
+        print(f"CALLING API WITH TOPIC: {topic}")
+        print(30*'=')
+        df_articles = generate_df_apiweather(topic, 2)
         df_complete = reduce(DataFrame.unionAll, df_articles)
 
         print("PRINTING TEMP TABLE SCHEMA ...")

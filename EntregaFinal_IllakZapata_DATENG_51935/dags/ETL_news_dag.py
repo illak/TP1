@@ -30,7 +30,13 @@ def success_function(context):
 )
 def extract_task(ti=None):
     print("Ejecutando Tarea 1: EXTRACT ======")
-    rows = extract()
+
+    try:
+        topic = str(Variable.get("topic"))
+        rows = extract(topic)
+    except:
+        rows = extract()
+    #rows = extract()
     print(f"ROWS: {rows}")
     """Pushes an XCom without a specific target"""
     #ti.xcom_push(task_ids='extract_task', key='num_regs')
