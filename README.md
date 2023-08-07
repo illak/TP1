@@ -173,6 +173,7 @@ En todos los casos, para el envío de mails automáticos, se hace uso del **smtp
 
 Además debemos configurar las variables de entorno como se explicó en la entrega anterior (necesarias para el uso de la API de noticias y de REDSHIFT).
 
+## Para hacer el deploy:
 El proyecto se encuentra en la carpeta *[EntregaFinal_IllakZapata_DATENG_51935](https://github.com/illak/TP_DE_FLEX_CODER/tree/master/EntregaFinal_IllakZapata_DATENG_51935)*. Dentro del directorio y luego de haber configurado todo lo relacionado a variables, levantamos el servicio con el comando:
 
 ```
